@@ -25,7 +25,7 @@ export default function Hero() {
             Pelajari Lebih
           </Button>
           <Button size="lg" variant="outline">
-            Daftar
+            <a href="https://sims.mbi-au.sch.id/psb/psb.php">Daftar</a>
           </Button>
         </div>
       </div>

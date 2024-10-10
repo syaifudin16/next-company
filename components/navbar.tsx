@@ -18,15 +18,23 @@ import {
 import Logo from "./logo";
 
 const navLinks = [
-  { name: "Home", href: "/", icon: Home },
-  { name: "About", href: "/about", icon: Info },
-  { name: "Contact", href: "/contact", icon: Phone },
+  { name: "Beranda", href: "/", icon: Home },
+  { name: "Tentang", href: "/about", icon: Info },
+  { name: "Kontak", href: "/contact", icon: Phone },
   { name: "FAQ", href: "/faq", icon: Book },
 ];
 
 const navBottomLinks = [
-  { name: "Login", href: "/login", icon: LogIn },
-  { name: "Register", href: "/register", icon: User },
+  {
+    name: "SIMS",
+    href: "https://simshttps://sims.mbi-au.sch.id/login.php",
+    icon: LogIn,
+  },
+  {
+    name: "Daftar",
+    href: "https://sims.mbi-au.sch.id/psb/psb.php",
+    icon: User,
+  },
 ];
 
 export default function Navbar() {
@@ -78,9 +86,8 @@ export default function Navbar() {
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             className="hidden sm:block py-2 px-4 rounded-full bg-teal-600 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400"
-            onClick={toggleMenu}
           >
-            Daftar
+            <a href="https://sims.mbi-au.sch.id/psb/psb.php">Daftar</a>
           </motion.button>
         </div>
       </div>
