@@ -1,6 +1,4 @@
-import Blog from "@/components/blog";
 import CTACentered from "@/components/cta-centered";
-import Events from "@/components/events";
 import Hero from "@/components/hero";
 import Programs from "@/components/programs";
 import SchoolStatistics from "@/components/statistics";
@@ -15,8 +13,6 @@ export default function Home() {
       <Programs />
       <WhyUs />
       <SchoolStatistics />
-      <Blog />
-      <Events />
       <Testimony />
       <Targets />
       <CTACentered />

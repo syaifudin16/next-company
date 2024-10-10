@@ -35,6 +35,12 @@ export default function Targets() {
         <h2 className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">
           Target Lulusan Kami
         </h2>
+        <p className="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+          Lulusan kami dipersiapkan untuk meraih sukses di perguruan tinggi
+          negeri favorit maupun universitas ternama dunia. Dengan kurikulum
+          berkualitas dan bimbingan intensif, kami membantu setiap siswa
+          menggapai cita-citanya di tingkat pendidikan yang lebih tinggi.
+        </p>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center">
           {targets.map((target, index) => (
             <div key={index} className="flex justify-center">

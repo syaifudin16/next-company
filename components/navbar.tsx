@@ -27,7 +27,7 @@ const navLinks = [
 const navBottomLinks = [
   {
     name: "SIMS",
-    href: "https://simshttps://sims.mbi-au.sch.id/login.php",
+    href: "https://sims.mbi-au.sch.id/login.php",
     icon: LogIn,
   },
   {
@@ -75,7 +75,7 @@ export default function Navbar() {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="block md:hidden p-2 rounded-md bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
+            className="block sm:hidden p-2 rounded-md bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >

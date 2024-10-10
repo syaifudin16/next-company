@@ -53,6 +53,11 @@ export default function Testimony() {
         <h2 className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">
           Apa Yang Mereka Katakan
         </h2>
+        <p className="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+          Testimoni dari santri, alumni, dan orang tua tentang pengalaman
+          belajar di MBI Amanatul Ummah. Mereka merasakan pendidikan yang
+          berkualitas dan pembentukan karakter yang kuat.
+        </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 auto-rows-fr">
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="flex flex-col">
