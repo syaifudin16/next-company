@@ -84,8 +84,8 @@ export default function Navbar() {
             whileTap={{ scale: 0.95 }}
             className="hidden sm:block"
           >
-            <Button size="lg">
-              <a href="http://sims.mbi-au.sch.id/psb/psb.php">Daftar</a>
+            <Button size="lg" variant="default">
+              <a href="https://sims.mbi-au.sch.id/psb/psb.php">Daftar</a>
             </Button>
           </motion.div>
         </div>
