@@ -30,12 +30,12 @@ export default function Targets() {
   ];
 
   return (
-    <section className="py-16 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">
+    <section className="py-16 bg-neutral-100 dark:bg-neutral-900">
+      <div className="max-w-7xl mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center mb-12 text-neutral-800 dark:text-white">
           Target Lulusan Kami
         </h2>
-        <p className="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+        <p className="text-center text-neutral-600 dark:text-neutral-300 mb-12 max-w-2xl mx-auto">
           Lulusan kami dipersiapkan untuk meraih sukses di perguruan tinggi
           negeri favorit maupun universitas ternama dunia. Dengan kurikulum
           berkualitas dan bimbingan intensif, kami membantu setiap siswa
@@ -49,7 +49,7 @@ export default function Targets() {
                 alt={target.name}
                 width={80}
                 height={80}
-                className="w-auto h-auto p-2 bg-white rounded-lg filter grayscale transition-transform duration-300 hover:scale-110 hover:grayscale-0"
+                className="w-auto h-auto p-2 bg-white rounded-lg filter grayscale transition-transform duration-300 hover:scale-110 hover:neutralscale-0"
               />
             </div>
           ))}

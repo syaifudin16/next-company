@@ -60,17 +60,17 @@ export default function Programs() {
 
   return (
     <section className="py-16 bg-emerald-600 dark:bg-emerald-800">
-      <div className="container mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold text-center mb-4 text-white">
+          <h2 className="text-3xl font-bold text-center mb-4 text-neutral-100">
             Program Kami
           </h2>
-          <p className="text-center text-white mb-12 max-w-2xl mx-auto">
+          <p className="text-center text-neutral-100 mb-12 max-w-2xl mx-auto">
             Kami menawarkan beragam program pendidikan yang dirancang untuk
             mengembangkan potensi setiap siswa. Setiap program kami fokus pada
             keunggulan akademik, pengembangan karakter, dan persiapan masa
@@ -94,14 +94,14 @@ export default function Programs() {
                   <motion.div whileHover={{ scale: 1.1 }}>
                     <div className="flex items-center">
                       <program.icon className="w-8 h-8 text-primary mr-4" />
-                      <CardTitle className="text-xl font-semibold  dark:text-white">
+                      <CardTitle className="text-xl font-semibold  dark:text-neutral-100">
                         {program.name}
                       </CardTitle>
                     </div>
                   </motion.div>
                 </CardHeader>
                 <CardContent>
-                  <CardDescription className="text-gray-600 dark:text-gray-300 text-justify">
+                  <CardDescription className="text-neutral-600 dark:text-neutral-300 text-justify">
                     {program.description}
                   </CardDescription>
                 </CardContent>

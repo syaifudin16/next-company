@@ -16,6 +16,7 @@ import {
   X,
 } from "lucide-react";
 import Logo from "./logo";
+import { Button } from "./ui/button";
 
 const navLinks = [
   { name: "Beranda", href: "/", icon: Home },
@@ -55,40 +56,38 @@ export default function Navbar() {
   const toggleMenu = () => setIsOpen(!isOpen);
 
   return (
-    <nav className="sticky top-0 z-50 w-full bg-white dark:bg-gray-900">
+    <nav className="sticky top-0 z-50 w-full bg-neutral-100 dark:bg-neutral-900">
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <div className="hidden sm:block">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="p-2 rounded-md bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
-              onClick={toggleMenu}
-              aria-label="Toggle menu"
-            >
-              <Menu className="h-6 w-6" />
-            </motion.button>
-          </div>
-
-          <Logo />
-
-          <motion.button
+          <motion.div
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            className="block sm:hidden p-2 rounded-md bg-white dark:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-500"
-            onClick={toggleMenu}
-            aria-label="Toggle menu"
+            className="hidden sm:block"
           >
-            <Menu className="h-6 w-6" />
-          </motion.button>
+            <Button onClick={toggleMenu}>
+              <Menu className="h-6 w-6" />
+            </Button>
+          </motion.div>
+          <Logo />
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="block sm:hidden"
+          >
+            <Button onClick={toggleMenu}>
+              <Menu className="h-6 w-6" />
+            </Button>
+          </motion.div>
 
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            whileTap={{ scale: 0.9 }}
-            className="hidden sm:block py-2 px-4 rounded-full bg-teal-600 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400"
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="hidden sm:block"
           >
-            <a href="https://sims.mbi-au.sch.id/psb/psb.php">Daftar</a>
-          </motion.button>
+            <Button size="lg">
+              <a href="http://sims.mbi-au.sch.id/psb/psb.php">Daftar</a>
+            </Button>
+          </motion.div>
         </div>
       </div>
 
@@ -98,23 +97,28 @@ export default function Navbar() {
             initial={{ x: "-100%" }}
             animate={{ x: 0 }}
             exit={{ x: "-100%" }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed top-0 left-0 w-full sm:w-[400px] h-full bg-white dark:bg-gray-900 shadow-lg z-50"
+            transition={{
+              type: "spring",
+              stiffness: 300,
+              damping: 30,
+            }}
+            className="fixed top-0 left-0 w-full sm:w-[400px] h-full bg-neutral-100 dark:bg-neutral-900 shadow-lg z-50"
           >
             <div className="flex flex-col h-full p-6">
               <div className="flex items-center justify-between mb-8">
-                <span className="text-2xl font-bold border-b-2 border-teal-600">
+                <span className="text-2xl font-bold border-b-2 border-emerald-600">
                   Menu
                 </span>
-                <motion.button
+                <motion.div
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.9 }}
-                  className="p-2 rounded-full bg-teal-600 text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-400"
                   onClick={toggleMenu}
                   aria-label="Close menu"
                 >
-                  <X className="h-6 w-6" />
-                </motion.button>
+                  <Button>
+                    <X className="h-6 w-6" />
+                  </Button>
+                </motion.div>
               </div>
               <div className="flex-grow">
                 <div className="space-y-4">
@@ -130,7 +134,7 @@ export default function Navbar() {
                   ))}
                 </div>
               </div>
-              <div className="border-t border-teal-600 pt-4 mt-4">
+              <div className="border-t border-emerald-600 pt-4 mt-4">
                 <div className="space-y-4">
                   {navBottomLinks.map((link) => (
                     <a

@@ -50,7 +50,7 @@ const blogPosts = [
 export default function Blog() {
   return (
     <section className="py-16 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-3xl font-bold text-center mb-6 text-gray-800 dark:text-white">
           Berita
         </h2>

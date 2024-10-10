@@ -48,12 +48,12 @@ const testimonials = [
 
 export default function Testimony() {
   return (
-    <section className="py-16 bg-white dark:bg-gray-900">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-12 text-gray-800 dark:text-white">
+    <section className="py-16 bg-neutral-100 dark:bg-neutral-900">
+      <div className="max-w-7xl mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center mb-12 text-neutral-800 dark:text-white">
           Apa Yang Mereka Katakan
         </h2>
-        <p className="text-center text-gray-600 dark:text-gray-300 mb-12 max-w-2xl mx-auto">
+        <p className="text-center text-neutral-600 dark:text-neutral-300 mb-12 max-w-2xl mx-auto">
           Testimoni dari santri, alumni, dan orang tua tentang pengalaman
           belajar di MBI Amanatul Ummah. Mereka merasakan pendidikan yang
           berkualitas dan pembentukan karakter yang kuat.
@@ -77,12 +77,12 @@ export default function Testimony() {
                   </Avatar>
                   <div className="ml-4">
                     <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
+                    <p className="text-sm text-neutral-500 dark:text-neutral-400">
                       {testimonial.role}
                     </p>
                   </div>
                 </div>
-                <p className="text-gray-600 dark:text-gray-300 text-justify">
+                <p className="text-neutral-600 dark:text-neutral-300 text-justify">
                   {testimonial.content}
                 </p>
               </CardContent>
