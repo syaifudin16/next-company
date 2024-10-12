@@ -49,7 +49,7 @@ export default function Targets() {
                 alt={target.name}
                 width={80}
                 height={80}
-                className="w-auto h-auto p-2 bg-white rounded-lg filter grayscale transition-transform duration-300 hover:scale-110 hover:neutralscale-0"
+                className="w-auto h-auto p-2 bg-white rounded-lg filter grayscale transition-transform duration-300 hover:scale-110 hover:grayscale-0"
               />
             </div>
           ))}
