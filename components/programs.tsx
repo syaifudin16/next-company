@@ -42,9 +42,8 @@ export default function Programs() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, amount: 0.2 });
 
-  // Variants for animation
   const cardVariants = {
-    hidden: { opacity: 0, y: 50, rotate: -5 }, // Fade and slight rotate effect
+    hidden: { opacity: 0, y: 50, rotate: -5 },
     visible: {
       opacity: 1,
       y: 0,

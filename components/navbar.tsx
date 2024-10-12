@@ -3,29 +3,12 @@
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
-import {
-  Menu,
-  Sun,
-  Moon,
-  Home,
-  Info,
-  Phone,
-  Book,
-  User,
-  LogIn,
-  X,
-} from "lucide-react";
+import { Menu, Sun, Moon, Phone, User, LogIn, X } from "lucide-react";
 import Logo from "./logo";
 import { Button } from "./ui/button";
 
 const navLinks = [
-  { name: "Beranda", href: "/", icon: Home },
-  { name: "Tentang", href: "/about", icon: Info },
-  { name: "Kontak", href: "/contact", icon: Phone },
-  { name: "FAQ", href: "/faq", icon: Book },
-];
-
-const navBottomLinks = [
+  { name: "Kontak", href: "#footer", icon: Phone },
   {
     name: "SIMS",
     href: "https://sims.mbi-au.sch.id/login.php",
@@ -37,6 +20,8 @@ const navBottomLinks = [
     icon: User,
   },
 ];
+
+// const navBottomLinks = [];
 
 export default function Navbar() {
   const { theme, setTheme } = useTheme();
@@ -136,7 +121,7 @@ export default function Navbar() {
               </div>
               <div className="border-t border-emerald-600 pt-4 mt-4">
                 <div className="space-y-4">
-                  {navBottomLinks.map((link) => (
+                  {/* {navBottomLinks.map((link) => (
                     <a
                       key={link.name}
                       href={link.href}
@@ -145,7 +130,7 @@ export default function Navbar() {
                     >
                       <link.icon className="mr-2 h-5 w-5" /> {link.name}
                     </a>
-                  ))}
+                  ))} */}
                   <button
                     onClick={toggleTheme}
                     className="flex items-center text-lg font-medium hover:underline rounded-md p-2 transition-colors w-full"

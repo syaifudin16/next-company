@@ -5,16 +5,27 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   const socials = [
-    { name: "Facebook", icon: <Facebook /> },
-    { name: "Instagram", icon: <Instagram /> },
-    { name: "Youtube", icon: <Youtube /> },
+    {
+      name: "Facebook",
+      icon: <Facebook />,
+      href: "https://www.facebook.com/mbiamanatulummah/",
+    },
+    {
+      name: "Instagram",
+      icon: <Instagram />,
+      href: "https://www.instagram.com/mbi.amanatulummah.pacet/",
+    },
+    {
+      name: "Youtube",
+      icon: <Youtube />,
+      href: "https://www.youtube.com/channel/mbiofficialau/",
+    },
   ];
 
   const links = [
     { name: "Beranda", href: "/" },
     { name: "Tentang", href: "/about" },
     { name: "Kontak", href: "/contact" },
-    { name: "FAQ", href: "/faq" },
   ];
 
   const legalLinks = [
@@ -24,13 +35,13 @@ export default function Footer() {
   ];
 
   const contactInfo = [
-    "Ust. Daud: (123) 456-7890",
-    "Ust. Titik: (123) 456-7890",
-    "Ust. Indah: (123) 456-7890",
+    "Ust. Daud: (+62 812-5212-8831)",
+    "Ust. Titik: (+62 856-0482-3015)",
+    "Ust. Indah: (+62 858-9512-7539)",
     "Jl. Tirtowening No. 2 Kembang, Belor, Kembangbelor, Kec. Pacet, Kabupaten Mojokerto, Jawa Timur 61374",
   ];
   return (
-    <footer className="bg-slate-900 text-white py-12">
+    <footer id="footer" className="bg-slate-900 text-white py-12">
       <div className="max-w-7xl mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>

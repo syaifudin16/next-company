@@ -62,12 +62,12 @@ export default function WhyChooseUs() {
   ];
 
   return (
-    <section className="py-12 px-4 md:px-6 lg:px-8 bg-gray-50">
+    <section className="py-12 px-4 md:px-6 lg:px-8 bg-neutral-100 dark:bg-neutral-900">
       <div className="max-w-7xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-8">
           Mengapa Memilih Kami
         </h2>
-        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+        <p className="text-center text-neutral-600 dark:text-neutral-300 mb-12 max-w-2xl mx-auto">
           Kami menawarkan pendidikan di lingkungan pesantren dan madrasah
           bertaraf internasional, menggabungkan ilmu pengetahuan modern dengan
           nilai-nilai Islami. Dengan pengajar berkualitas dan fasilitas lengkap,
@@ -83,7 +83,7 @@ export default function WhyChooseUs() {
                 <CardTitle className="text-xl mb-2">{item.title}</CardTitle>
               </CardHeader>
               <CardContent>
-                <CardDescription className="text-sm text-gray-600">
+                <CardDescription className="text-neutral-600 dark:text-neutral-300">
                   {item.description}
                 </CardDescription>
               </CardContent>
