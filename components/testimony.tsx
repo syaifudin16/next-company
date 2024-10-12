@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar } from "@/components/ui/avatar";
 
 import testimony1 from "@/images/testimony/1.jpg";
 import testimony2 from "@/images/testimony/2.jpg";
