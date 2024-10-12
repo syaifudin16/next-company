@@ -1,48 +1,57 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+
+import testimony1 from "@/images/testimony/1.jpg";
+import testimony2 from "@/images/testimony/2.jpg";
+import testimony3 from "@/images/testimony/3.jpeg";
+import testimony4 from "@/images/testimony/4.jpeg";
+import testimony5 from "@/images/testimony/5.png";
+import testimony6 from "@/images/testimony/6.png";
+
+import Image from "next/image";
 
 const testimonials = [
   {
-    name: "Alice Johnson",
-    role: "Student",
+    name: "Prof. Dr. H. M. Ali Ramdhani",
+    role: "Direktur Jenderal Pendis Kemenag RI",
     content:
-      "The education I received here has been transformative. The teachers are passionate and the curriculum is challenging yet engaging.",
-    avatar: "/placeholder.svg?height=40&width=40",
+      "Madrasah berstandar dunia yang menghasilkan individu berkarakter mulia, berwawasan luas, dan terampil, dengan kompetensi utama yang mempersiapkan alumninya meraih kesuksesan di dunia dan kebahagiaan di akhirat.",
+    avatar: testimony3,
   },
   {
-    name: "Bob Smith",
-    role: "Parent",
+    name: "Prof. Ojat Darojat, M.Bus., Ph.D.",
+    role: "Rektor Universitas Terbuka",
     content:
-      "I've seen remarkable growth in my child's academic performance and confidence since enrolling here. The supportive environment has made all the difference.",
-    avatar: "/placeholder.svg?height=40&width=40",
+      "MBI adalah lembaga pendidikan yang menggabungkan wawasan global dengan nilai-nilai luhur budaya lokal. MBI mendidik generasi bangsa yang berprestasi di bidang akademik dan berkarakter mulia, mencerminkan pendidikan yang tetap berjiwa ke-Indonesiaan.",
+    avatar: testimony2,
   },
   {
-    name: "Charlie Brown",
+    name: "Dr. Zastrow Al Ngatawi",
+    role: "Dosen",
+    content:
+      "Kualitas MBI Amanatul Ummah (AU) Pacet setara dengan lembaga pendidikan favorit di Indonesia. Dengan sistem modern yang kreatif, santri MBI sering meraih juara di lomba nasional dan diterima di perguruan tinggi favorit, termasuk tanpa tes.",
+    avatar: testimony1,
+  },
+  {
+    name: "Fayyadh Faza Muhammad",
     role: "Alumni",
     content:
-      "The skills and knowledge I gained during my time at this institution have been invaluable in my professional career. I'm grateful for the foundation it provided.",
-    avatar: "/placeholder.svg?height=40&width=40",
+      "Mondok di MBI dengan sistem pembelajaran yang mendukung minat dan bakat santri sangat membantu saya meningkatkan kualitas diri di bidang akademik dan non-akademik, sambil tetap menjaga nilai dan budaya keagamaan yang khas ala pesantren.",
+    avatar: testimony4,
   },
   {
-    name: "Diana Ross",
-    role: "Teacher",
+    name: "Ahmad Rizqi Hidayat",
+    role: "Alumni",
     content:
-      "It's a privilege to work in such a supportive and innovative educational environment. We're truly making a difference in our students' lives.",
-    avatar: "/placeholder.svg?height=40&width=40",
+      "Di MBI, saya belajar banyak tentang keilmuan Islam, tradisi pesantren, dan cara menghormati guru ala santri. Karakter yang dibentuk di MBI sangat kuat, membuat kami menjadi individu yang bersemangat untuk terus bertumbuh dan berproses.",
+    avatar: testimony5,
   },
   {
-    name: "Ethan Hunt",
-    role: "Student",
+    name: "Muhammad Fazli Fahmi Ardiansyah",
+    role: "Alumni",
     content:
-      "The extracurricular activities and clubs have allowed me to explore my interests and develop new skills outside of the classroom. It's been an amazing journey.",
-    avatar: "/placeholder.svg?height=40&width=40",
-  },
-  {
-    name: "Fiona Apple",
-    role: "Parent",
-    content:
-      "The staff's dedication to each student's success is evident in everything they do. We couldn't be happier with our choice to enroll our child here.",
-    avatar: "/placeholder.svg?height=40&width=40",
+      "Tanpa belajar di MBI, mungkin saya tidak akan mendapatkan kesempatan menjadi penerima Beasiswa Indonesia Maju (BIM). Terima kasih kepada Abah Yai Asep, pendiri dan pengasuh PP Amanatul Ummah, yang telah menyediakan sistem pembelajaran luar biasa bagi para santri.",
+    avatar: testimony6,
   },
 ];
 
@@ -64,16 +73,7 @@ export default function Testimony() {
               <CardContent className="p-6 flex-grow">
                 <div className="flex items-center mb-4">
                   <Avatar>
-                    <AvatarImage
-                      src={testimonial.avatar}
-                      alt={testimonial.name}
-                    />
-                    <AvatarFallback>
-                      {testimonial.name
-                        .split(" ")
-                        .map((n) => n[0])
-                        .join("")}
-                    </AvatarFallback>
+                    <Image src={testimonial.avatar} alt={testimonial.name} />
                   </Avatar>
                   <div className="ml-4">
                     <p className="font-semibold">{testimonial.name}</p>
