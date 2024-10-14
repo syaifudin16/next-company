@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "./ui/button";
 
 export default function Hero() {
@@ -23,7 +24,7 @@ export default function Hero() {
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Button size="lg" variant="default">
-            PPDB
+            <Link href="/ppdb">PPDB</Link>
           </Button>
           <Button size="lg" variant="outline">
             <a href="https://sims.mbi-au.sch.id/psb/psb.php">Daftar</a>
