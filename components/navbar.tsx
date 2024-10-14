@@ -1,156 +1,160 @@
-"use client";
+import * as React from "react";
+import Link from "next/link";
+import { Menu as MenuIcon } from "lucide-react";
 
-import { useState, useEffect } from "react";
-import { useTheme } from "next-themes";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, Sun, Moon, Phone, User, LogIn, X } from "lucide-react";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
 import Logo from "./logo";
-import { Button } from "./ui/button";
+import { ModeToggle } from "./theme-toggle";
 
-const navLinks = [
-  { name: "Kontak", href: "#footer", icon: Phone },
+const menuItems = [
+  { title: "Beranda", href: "/" },
+  { title: "PPDB", href: "/ppdb" },
+  { title: "Kontak", href: "/contact" },
+];
+
+const applicationItems = [
   {
-    name: "SIMS",
+    title: "SIMS",
     href: "https://sims.mbi-au.sch.id/login.php",
-    icon: LogIn,
+    description: "Sistem Informasi Manajemen Sekolah",
   },
   {
-    name: "Daftar",
+    title: "Pendaftaran",
     href: "https://sims.mbi-au.sch.id/psb/psb.php",
-    icon: User,
+    description: "Aplikasi untuk mendaftar sebagai siswa baru",
   },
 ];
 
-// const navBottomLinks = [];
-
 export default function Navbar() {
-  const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  const toggleTheme = () => {
-    if (mounted) {
-      setTheme(theme === "dark" ? "light" : "dark");
-    }
-  };
-
-  const toggleMenu = () => setIsOpen(!isOpen);
-
   return (
-    <nav className="sticky top-0 z-50 w-full bg-neutral-100 dark:bg-neutral-900">
-      <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="hidden sm:block"
-          >
-            <Button onClick={toggleMenu}>
-              <Menu className="h-6 w-6" />
-            </Button>
-          </motion.div>
+    <header className="sticky top-0 z-50 w-full bg-background">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex h-20 items-center justify-between">
           <Logo />
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="block sm:hidden"
-          >
-            <Button onClick={toggleMenu}>
-              <Menu className="h-6 w-6" />
-            </Button>
-          </motion.div>
-
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="hidden sm:block"
-          >
-            <Button size="lg" variant="default">
+          <nav className="hidden md:flex items-center space-x-6">
+            <NavigationMenu>
+              <NavigationMenuList>
+                {menuItems.map((item) => (
+                  <NavigationMenuItem key={item.title}>
+                    <Link href={item.href} legacyBehavior passHref>
+                      <NavigationMenuLink
+                        className={navigationMenuTriggerStyle()}
+                      >
+                        {item.title}
+                      </NavigationMenuLink>
+                    </Link>
+                  </NavigationMenuItem>
+                ))}
+              </NavigationMenuList>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger>Aplikasi</NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2">
+                      {applicationItems.map((items) => (
+                        <ListItem
+                          key={items.title}
+                          title={items.title}
+                          href={items.href}
+                        >
+                          {items.description}
+                        </ListItem>
+                      ))}
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+          </nav>
+          <div className="flex items-center space-x-4">
+            <ModeToggle />
+            <Button className="hidden md:inline-flex">
               <a href="https://sims.mbi-au.sch.id/psb/psb.php">Daftar</a>
             </Button>
-          </motion.div>
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button variant="outline" size="sm" className="md:hidden">
+                  <MenuIcon />
+                </Button>
+              </SheetTrigger>
+              <SheetContent side="right">
+                <MobileNav />
+              </SheetContent>
+            </Sheet>
+          </div>
         </div>
       </div>
+    </header>
+  );
+}
 
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ x: "-100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
-            transition={{
-              type: "spring",
-              stiffness: 300,
-              damping: 30,
-            }}
-            className="fixed top-0 left-0 w-full sm:w-[400px] h-full bg-neutral-100 dark:bg-neutral-900 shadow-lg z-50"
+function MobileNav() {
+  return (
+    <nav className="flex flex-col space-y-4 mt-8">
+      {menuItems.map((item) => (
+        <Link
+          key={item.title}
+          href={item.href}
+          className="text-sm font-medium transition-colors hover:text-primary"
+        >
+          {item.title}
+        </Link>
+      ))}
+      <div className="pt-4">
+        <h3 className="font-medium mb-2">Programs</h3>
+        {applicationItems.map((item) => (
+          <Link
+            key={item.title}
+            href={item.href}
+            className="block text-sm text-muted-foreground py-2 transition-colors hover:text-primary"
           >
-            <div className="flex flex-col h-full p-6">
-              <div className="flex items-center justify-between mb-8">
-                <span className="text-2xl font-bold border-b-2 border-emerald-600">
-                  Menu
-                </span>
-                <motion.div
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.9 }}
-                  onClick={toggleMenu}
-                  aria-label="Close menu"
-                >
-                  <Button>
-                    <X className="h-6 w-6" />
-                  </Button>
-                </motion.div>
-              </div>
-              <div className="flex-grow">
-                <div className="space-y-4">
-                  {navLinks.map((link) => (
-                    <a
-                      key={link.name}
-                      href={link.href}
-                      className="flex items-center text-lg font-medium hover:underline rounded-md p-2 transition-colors duration-200"
-                      onClick={toggleMenu}
-                    >
-                      <link.icon className="mr-2 h-5 w-5" /> {link.name}
-                    </a>
-                  ))}
-                </div>
-              </div>
-              <div className="border-t border-emerald-600 pt-4 mt-4">
-                <div className="space-y-4">
-                  {/* {navBottomLinks.map((link) => (
-                    <a
-                      key={link.name}
-                      href={link.href}
-                      className="flex items-center text-lg font-medium hover:underline rounded-md p-2 transition-colors duration-200"
-                      onClick={toggleMenu}
-                    >
-                      <link.icon className="mr-2 h-5 w-5" /> {link.name}
-                    </a>
-                  ))} */}
-                  <button
-                    onClick={toggleTheme}
-                    className="flex items-center text-lg font-medium hover:underline rounded-md p-2 transition-colors w-full"
-                  >
-                    {mounted && theme === "dark" ? (
-                      <>
-                        <Sun className="mr-2 h-5 w-5" /> Light Mode
-                      </>
-                    ) : (
-                      <>
-                        <Moon className="mr-2 h-5 w-5" /> Dark Mode
-                      </>
-                    )}
-                  </button>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+            {item.title}
+          </Link>
+        ))}
+      </div>
+      <div className="pt-4 flex items-center justify-between">
+        <ModeToggle />
+        <Button>
+          <a href="https://sims.mbi-au.sch.id/psb/psb.php">Daftar</a>
+        </Button>
+      </div>
     </nav>
   );
 }
+
+const ListItem = React.forwardRef<
+  React.ElementRef<"a">,
+  React.ComponentPropsWithoutRef<"a">
+>(({ className, title, children, ...props }, ref) => {
+  return (
+    <li>
+      <NavigationMenuLink asChild>
+        <a
+          ref={ref}
+          className={cn(
+            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            className
+          )}
+          {...props}
+        >
+          <div className="text-sm font-medium leading-none">{title}</div>
+          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+            {children}
+          </p>
+        </a>
+      </NavigationMenuLink>
+    </li>
+  );
+});
+ListItem.displayName = "ListItem";

@@ -22,15 +22,15 @@ import {
   ArrowRightIcon,
 } from "lucide-react";
 
-export default function Component() {
+export default function Admition() {
   return (
-    <div className="text-neutral-100 dark:text-neutral-400 bg-neutral-100 dark:bg-neutral-900">
+    <div className="text-neutral-100 dark:text-neutral-100 bg-neutral-100 dark:bg-neutral-900">
       <header className="text-center bg-gradient-to-bl from-green-500 to-teal-600 py-16">
         <div className="max-w-7xl mx-auto px-4">
           <h1 className="text-3xl font-bold mb-2">
             Penerimaan Peserta Didik Baru
           </h1>
-          <p className="text-lg">
+          <p className="text-lg text-neutral-100">
             Selamat datang di halaman informasi PPDB tahun ajaran 2025/2026
           </p>
         </div>
@@ -54,7 +54,10 @@ export default function Component() {
               <li>Pendaftaran dibuka untuk siswa kelas 9 SMP/MTs</li>
               <li>Proses seleksi meliputi tes tulis dan penilaian prestasi</li>
               <li>Tersedia tiga gelombang pendaftaran dengan kuota terbatas</li>
-              <li>Hasil seleksi akan di</li>
+              <li>
+                Hasil seleksi akan diumumkan melalui website dan kontak
+                terdaftar.
+              </li>
             </ul>
           </CardContent>
         </Card>
