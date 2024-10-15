@@ -24,7 +24,7 @@ export default function Footer() {
 
   const links = [
     { name: "Beranda", href: "/" },
-    { name: "Tentang", href: "/about" },
+    { name: "PPDB", href: "/ppdb" },
     { name: "Kontak", href: "/contact" },
   ];
 
@@ -80,7 +80,7 @@ export default function Footer() {
               {socials.map((social, index) => (
                 <a
                   key={index}
-                  href="#"
+                  href={social.href}
                   className="text-gray-400 hover:text-white"
                 >
                   {social.icon}

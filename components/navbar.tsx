@@ -112,7 +112,7 @@ function MobileNav() {
         </Link>
       ))}
       <div className="pt-4">
-        <h3 className="font-medium mb-2">Programs</h3>
+        <h3 className="font-medium mb-2">Aplikasi</h3>
         {applicationItems.map((item) => (
           <Link
             key={item.title}
