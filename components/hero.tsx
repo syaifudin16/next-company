@@ -24,7 +24,7 @@ export default function Hero() {
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Button size="lg" variant="default">
-            <Link href="/ppdb">PPDB</Link>
+            <Link href="/admission">PPDB</Link>
           </Button>
           <Button size="lg" variant="outline">
             <a href="https://sims.mbi-au.sch.id/psb/psb.php">Daftar</a>

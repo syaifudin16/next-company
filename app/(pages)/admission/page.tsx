@@ -22,7 +22,58 @@ import {
   ArrowRightIcon,
 } from "lucide-react";
 
-export default function Admition() {
+const registrationSchedule = [
+  {
+    period: "Gelombang I",
+    registrationPeriod: "Juli - September 2024",
+    examDate: "Oktober 2024",
+  },
+  {
+    period: "Gelombang II",
+    registrationPeriod: "Oktober - Februari 2025",
+    examDate: "Februari 2025",
+  },
+  {
+    period: "Gelombang III",
+    registrationPeriod: "Februari - Juni 2025",
+    examDate: "Juni 2025",
+  },
+];
+
+const registrationFee = [
+  {
+    period: "Gelombang I",
+    amount: "Rp 10.700.000",
+  },
+  {
+    period: "Gelombang II",
+    amount: "Rp 11.200.000",
+  },
+  {
+    period: "Gelombang III",
+    amount: "Rp 11.200.000",
+  },
+];
+
+const admissionFee = [
+  {
+    type: "Pendaftaran Ujian Masuk",
+    amount: "Rp 400.000",
+  },
+  {
+    type: "Biaya Matrikulasi & MPLM",
+    amount: "Rp 400.000",
+  },
+];
+
+const monthlyFee = [
+  {
+    type: "SPP Sekolah dan Pesantren",
+    amount: "Rp 2.050.000",
+  },
+];
+
+export default function Admission() {
   return (
     <div className="text-neutral-100 dark:text-neutral-100 bg-neutral-100 dark:bg-neutral-900">
       <header className="text-center bg-gradient-to-bl from-green-500 to-teal-600 py-16">
@@ -79,21 +130,13 @@ export default function Admition() {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                <TableRow>
-                  <TableCell>Gelombang I</TableCell>
-                  <TableCell>Juli - September 2024</TableCell>
-                  <TableCell>Oktober 2024</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Gelombang II</TableCell>
-                  <TableCell>Oktober - Februari 2025</TableCell>
-                  <TableCell>Februari 2025</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Gelombang III</TableCell>
-                  <TableCell>Februari - Juni 2025</TableCell>
-                  <TableCell>Juni 2025</TableCell>
-                </TableRow>
+                {registrationSchedule.map((schedule) => (
+                  <TableRow key={schedule.period}>
+                    <TableCell>{schedule.period}</TableCell>
+                    <TableCell>{schedule.registrationPeriod}</TableCell>
+                    <TableCell>{schedule.examDate}</TableCell>
+                  </TableRow>
+                ))}
               </TableBody>
             </Table>
           </CardContent>
@@ -234,47 +277,45 @@ export default function Admition() {
             </CardTitle>
           </CardHeader>
           <CardContent>
-            <h3 className="text-lg font-semibold mb-2">Biaya Daftar Ulang</h3>
+            <h3 className="text-lg font-semibold mb-2 flex items-center space-x-2">
+              <ClipboardListIcon className="h-5 w-5 text-primary" />
+              <span>Biaya Daftar Ulang</span>
+            </h3>
             <Table className="mb-6">
               <TableHeader>
                 <TableRow>
                   <TableHead>Gelombang</TableHead>
-                  <TableHead>Jumlah</TableHead>
+                  <TableHead className="text-right">Jumlah</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                <TableRow>
-                  <TableCell>Gelombang I</TableCell>
-                  <TableCell>Rp 10.700.000</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Gelombang II</TableCell>
-                  <TableCell>Rp 11.200.000</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Gelombang III</TableCell>
-                  <TableCell>Rp 11.200.000</TableCell>
-                </TableRow>
+                {registrationFee.map((fee, index) => (
+                  <TableRow key={index}>
+                    <TableCell>{fee.period}</TableCell>
+                    <TableCell className="text-right">{fee.amount}</TableCell>
+                  </TableRow>
+                ))}
               </TableBody>
             </Table>
 
-            <h3 className="text-lg font-semibold mb-2">Biaya Awal Masuk</h3>
+            <h3 className="text-lg font-semibold mb-2 flex items-center space-x-2">
+              <ClipboardListIcon className="h-5 w-5 text-primary" />
+              <span>Biaya Awal Masuk</span>
+            </h3>
             <Table className="mb-6">
               <TableHeader>
                 <TableRow>
                   <TableHead>Jenis Biaya</TableHead>
-                  <TableHead>Jumlah</TableHead>
+                  <TableHead className="text-right">Jumlah</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                <TableRow>
-                  <TableCell>Pendaftaran Ujian Masuk</TableCell>
-                  <TableCell>Rp 400.000</TableCell>
-                </TableRow>
-                <TableRow>
-                  <TableCell>Biaya Matrikulasi & MPLM</TableCell>
-                  <TableCell>Rp 400.000</TableCell>
-                </TableRow>
+                {admissionFee.map((fee, index) => (
+                  <TableRow key={index}>
+                    <TableCell>{fee.type}</TableCell>
+                    <TableCell className="text-right">{fee.amount}</TableCell>
+                  </TableRow>
+                ))}
               </TableBody>
             </Table>
             <p className="mb-4 text-sm text-muted-foreground">
@@ -284,19 +325,24 @@ export default function Admition() {
               serta fasilitas asrama seperti kasur dan lemari.
             </p>
 
-            <h3 className="text-lg font-semibold mb-2">Syariah Bulanan</h3>
+            <h3 className="text-lg font-semibold mb-2 flex items-center space-x-2">
+              <ClipboardListIcon className="h-5 w-5 text-primary" />
+              <span>Biaya Syariah Bulanan</span>
+            </h3>
             <Table>
               <TableHeader>
                 <TableRow>
                   <TableHead>Jenis Biaya</TableHead>
-                  <TableHead>Jumlah</TableHead>
+                  <TableHead className="text-right">Jumlah</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
-                <TableRow>
-                  <TableCell>SPP Sekolah dan Pesantren</TableCell>
-                  <TableCell>Rp 2.050.000</TableCell>
-                </TableRow>
+                {monthlyFee.map((fee, index) => (
+                  <TableRow key={index}>
+                    <TableCell>{fee.type}</TableCell>
+                    <TableCell className="text-right">{fee.amount}</TableCell>
+                  </TableRow>
+                ))}
               </TableBody>
             </Table>
             <p className="mt-4 text-sm text-muted-foreground">

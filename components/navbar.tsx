@@ -1,6 +1,6 @@
 import * as React from "react";
 import Link from "next/link";
-import { Menu as MenuIcon } from "lucide-react";
+import { AppWindow, LogIn, Menu } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -19,17 +19,20 @@ import { ModeToggle } from "./theme-toggle";
 
 const menuItems = [
   { title: "Beranda", href: "/" },
-  { title: "PPDB", href: "/ppdb" },
+  { title: "Tentang", href: "/about" },
+  { title: "Pendaftaran", href: "/admission" },
   { title: "Kontak", href: "/contact" },
 ];
 
 const applicationItems = [
   {
+    icon: AppWindow,
     title: "SIMS",
     href: "https://sims.mbi-au.sch.id/login.php",
     description: "Sistem Informasi Manajemen Sekolah",
   },
   {
+    icon: LogIn,
     title: "Pendaftaran",
     href: "https://sims.mbi-au.sch.id/psb/psb.php",
     description: "Aplikasi untuk mendaftar sebagai siswa baru",
@@ -40,7 +43,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 w-full bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex h-20 items-center justify-between">
+        <div className="flex h-16 items-center justify-between">
           <Logo />
           <nav className="hidden md:flex items-center space-x-6">
             <NavigationMenu>
@@ -65,6 +68,7 @@ export default function Navbar() {
                       {applicationItems.map((items) => (
                         <ListItem
                           key={items.title}
+                          icon={items.icon}
                           title={items.title}
                           href={items.href}
                         >
@@ -78,14 +82,14 @@ export default function Navbar() {
             </NavigationMenu>
           </nav>
           <div className="flex items-center space-x-4">
-            <ModeToggle />
-            <Button className="hidden md:inline-flex">
-              <a href="https://sims.mbi-au.sch.id/psb/psb.php">Daftar</a>
-            </Button>
+            <ModeToggle className="hidden md:inline-flex" />
+            <a href="https://sims.mbi-au.sch.id/psb/psb.php">
+              <Button className="hidden md:inline-flex">Daftar</Button>
+            </a>
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="outline" size="sm" className="md:hidden">
-                  <MenuIcon />
+                  <Menu />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right">
@@ -124,37 +128,57 @@ function MobileNav() {
         ))}
       </div>
       <div className="pt-4 flex items-center justify-between">
+        <a href="https://sims.mbi-au.sch.id/psb/psb.php">
+          <Button>Daftar</Button>
+        </a>
         <ModeToggle />
-        <Button>
-          <a href="https://sims.mbi-au.sch.id/psb/psb.php">Daftar</a>
-        </Button>
       </div>
     </nav>
   );
 }
 
-const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
-        </a>
-      </NavigationMenuLink>
-    </li>
-  );
-});
+interface ListItemProps
+  extends Omit<
+    React.DetailedHTMLProps<
+      React.AnchorHTMLAttributes<HTMLAnchorElement>,
+      HTMLAnchorElement
+    >,
+    "ref"
+  > {
+  icon: React.ElementType;
+  title: string;
+  children?: React.ReactNode;
+}
+
+const ListItem = React.forwardRef<React.ElementRef<"a">, ListItemProps>(
+  ({ className, title, children, icon, ...props }, ref) => {
+    return (
+      <li className="flex">
+        <NavigationMenuLink asChild>
+          <a
+            ref={ref}
+            className={cn(
+              "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+              className
+            )}
+            {...props}
+          >
+            <div className="flex space-x-4">
+              {React.createElement(icon, { className: "h-6 w-6" })}
+              <div className="space-y-2">
+                <div className="text-sm font-semibold leading-none">
+                  {title}
+                </div>
+                <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                  {children}
+                </p>
+              </div>
+            </div>
+          </a>
+        </NavigationMenuLink>
+      </li>
+    );
+  }
+);
+
 ListItem.displayName = "ListItem";

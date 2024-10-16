@@ -24,7 +24,7 @@ export default function Footer() {
 
   const links = [
     { name: "Beranda", href: "/" },
-    { name: "PPDB", href: "/ppdb" },
+    { name: "PPDB", href: "/admission" },
     { name: "Kontak", href: "/contact" },
   ];
 
