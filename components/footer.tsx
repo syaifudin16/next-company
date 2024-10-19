@@ -1,109 +1,130 @@
-import { Facebook, Instagram, Youtube } from "lucide-react";
+import Link from "next/link";
 import Logo from "./logo";
+import {
+  IconBrandFacebook,
+  IconBrandInstagram,
+  IconBrandYoutube,
+} from "@tabler/icons-react";
+
+const socialLink = [
+  {
+    name: "Facebook",
+    href: "https://www.facebook.com/mbiamanatulummah/",
+    icon: <IconBrandFacebook />,
+  },
+  {
+    name: "Youtube",
+    href: "https://www.youtube.com/channel/mbiofficialau/",
+    icon: <IconBrandYoutube />,
+  },
+  {
+    name: "Instagram",
+    href: "https://www.instagram.com/mbi.amanatulummah.pacet/",
+    icon: <IconBrandInstagram />,
+  },
+];
+
+const footerLinks = [
+  {
+    title: "Akses Cepat",
+    sublinks: [
+      {
+        title: "Beranda",
+        href: "/",
+      },
+      {
+        title: "Admisi",
+        href: "/admission",
+      },
+      {
+        title: "Tentang",
+        href: "/about",
+      },
+      {
+        title: "Kontak",
+        href: "/contact",
+      },
+    ],
+  },
+  {
+    title: "Aplikasi",
+    sublinks: [
+      {
+        title: "SIMS",
+        href: "https://sims.mbi-au.sch.id",
+      },
+      {
+        title: "Brosur",
+        href: "https://drive.google.com/file/d/1r-gzXZKXqDevGlRqegyKDZuHAH3AxQ4p/view",
+      },
+      {
+        title: "Form Pendaftaran",
+        href: "https://spp.mbi-au.sch.id/psb/psb.php",
+      },
+    ],
+  },
+  {
+    title: "Legal",
+    sublinks: [
+      {
+        title: "Kebijakan Privasi",
+        href: "/privacy",
+      },
+      {
+        title: "Syarat & Ketentuan",
+        href: "/terms",
+      },
+    ],
+  },
+];
 
 export default function Footer() {
-  const year = new Date().getFullYear();
-
-  const socials = [
-    {
-      name: "Facebook",
-      icon: <Facebook />,
-      href: "https://www.facebook.com/mbiamanatulummah/",
-    },
-    {
-      name: "Instagram",
-      icon: <Instagram />,
-      href: "https://www.instagram.com/mbi.amanatulummah.pacet/",
-    },
-    {
-      name: "Youtube",
-      icon: <Youtube />,
-      href: "https://www.youtube.com/channel/mbiofficialau/",
-    },
-  ];
-
-  const links = [
-    { name: "Beranda", href: "/" },
-    { name: "PPDB", href: "/admission" },
-    { name: "Kontak", href: "/contact" },
-  ];
-
-  const legalLinks = [
-    { name: "Privacy Policy", href: "/privacy-policy" },
-    { name: "Terms and Conditions", href: "/terms-and-conditions" },
-    { name: "Cookie Policy", href: "/cookie-policy" },
-  ];
-
-  const contactInfo = [
-    "Ust. Daud: (+62 812-5212-8831)",
-    "Ust. Titik: (+62 856-0482-3015)",
-    "Ust. Indah: (+62 858-9512-7539)",
-    "Jl. Tirtowening No. 2 Kembang, Belor, Kembangbelor, Kec. Pacet, Kabupaten Mojokerto, Jawa Timur 61374",
-  ];
   return (
-    <footer id="footer" className="bg-slate-900 text-white py-12">
-      <div className="max-w-7xl mx-auto px-4">
+    <footer className="bg-background text-foreground">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div>
+          <div className="space-y-4">
             <Logo />
-            <p className="text-gray-400 pt-4">
-              We are dedicated to providing quality education and fostering a
-              love for learning in all our students.
+            <p className="text-sm text-muted-foreground">
+              Kami adalah madrasah bertaraf internasional yang berdedikasi untuk
+              menyediakan pendidikan berkualitas tinggi dan pelayanan terbaik
+              bagi para santri.
             </p>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
-            <ul className="space-y-2">
-              {links.map((link, index) => (
-                <li key={index}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-white"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Info</h3>
-            {contactInfo.map((info, index) => (
-              <p key={index} className="text-gray-400">
-                {info}
-              </p>
-            ))}
-          </div>
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Follow Us</h3>
             <div className="flex space-x-4">
-              {socials.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  className="text-gray-400 hover:text-white"
+              {socialLink.map((link) => (
+                <Link
+                  href={link.href}
+                  key={link.name}
+                  className="text-muted-foreground hover:text-primary transition-colors"
                 >
-                  {social.icon}
-                </a>
+                  {link.icon}
+                </Link>
               ))}
             </div>
           </div>
+          {footerLinks.map((link) => (
+            <div key={link.title}>
+              <h2 className="text-primary text-lg font-semibold mb-4">
+                {link.title}
+              </h2>
+              <ul className="space-y-2">
+                {link.sublinks.map((sublink) => (
+                  <li key={sublink.title}>
+                    <Link
+                      href={sublink.href}
+                      className="text-muted-foreground hover:text-primary transition-colors text-sm"
+                    >
+                      {sublink.title}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
         </div>
-        <div className="mt-8 pt-8 border-t border-gray-800 text-center">
-          <p className="text-gray-400">
-            &copy; {year} MBI Amanatul Ummah. All rights reserved.
-          </p>
-          <div className="mt-4 space-x-4">
-            {legalLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.href}
-                className="text-gray-400 hover:text-white"
-              >
-                {link.name}
-              </a>
-            ))}
-          </div>
+        <div className="mt-8 pt-8 border-t border-border text-sm text-center text-muted-foreground">
+          <p>&copy; {new Date().getFullYear()} MBI Amanatul Ummah.</p>
+          <p>All rights reserved.</p>
         </div>
       </div>
     </footer>

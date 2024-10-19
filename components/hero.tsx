@@ -10,7 +10,7 @@ export default function Hero() {
         muted
         className="absolute top-0 left-0 w-full h-full object-cover"
       >
-        <source src="/video.mp4" type="video/mp4" />
+        <source src="/video.webm" type="video/webm" />
         Your browser does not support the video tag.
       </video>
 
@@ -24,7 +24,7 @@ export default function Hero() {
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <Button size="lg" variant="default">
-            <Link href="/admission">PPDB</Link>
+            <Link href="/admission">Admisi</Link>
           </Button>
           <Button size="lg" variant="outline">
             <a href="https://sims.mbi-au.sch.id/psb/psb.php">Daftar</a>

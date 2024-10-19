@@ -36,12 +36,12 @@ const programs = [
 
 export default function Programs() {
   return (
-    <section className="py-16 bg-emerald-600 dark:bg-emerald-800">
+    <section className="py-16 bg-emerald-100 dark:bg-emerald-800">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-4 text-neutral-100">
+        <h2 className="text-3xl font-bold text-center mb-4 text-primary">
           Program Kami
         </h2>
-        <p className="text-center text-neutral-100 mb-12 max-w-2xl mx-auto">
+        <p className="text-center text-primary mb-12 max-w-2xl mx-auto">
           Kami menawarkan beragam program pendidikan yang dirancang untuk
           mengembangkan potensi setiap siswa. Setiap program kami fokus pada
           keunggulan akademik, pengembangan karakter, dan persiapan masa depan.
@@ -56,7 +56,7 @@ export default function Programs() {
                 <CardHeader>
                   <div className="flex items-center">
                     <program.icon className="w-8 h-8 text-primary mr-4" />
-                    <CardTitle className="text-xl font-semibold dark:text-neutral-100">
+                    <CardTitle className="text-xl font-semibold dark:text-primary">
                       {program.name}
                     </CardTitle>
                   </div>

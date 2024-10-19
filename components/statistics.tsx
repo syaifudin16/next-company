@@ -22,12 +22,12 @@ export default function SchoolStatistics() {
   ];
 
   return (
-    <section className="py-16 bg-emerald-600 dark:bg-emerald-800">
+    <section className="py-16 bg-emerald-100 dark:bg-emerald-800">
       <div className="max-w-7xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center text-white mb-4">
+        <h2 className="text-4xl font-bold text-center text-primary mb-4">
           Sekolah Kami dalam Angka
         </h2>
-        <p className="text-center text-white mb-12 max-w-2xl mx-auto">
+        <p className="text-center text-primary mb-12 max-w-2xl mx-auto">
           Sejak berdiri, sekolah kami telah mencapai berbagai pencapaian yang
           membanggakan. Berikut adalah gambaran sekolah kami dalam angka-angka
           penting.
