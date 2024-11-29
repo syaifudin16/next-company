@@ -61,6 +61,10 @@ const footerLinks = [
         title: "Form Pendaftaran",
         href: "https://spp.mbi-au.sch.id/psb/psb.php",
       },
+      {
+        title: "Form Pendaftaran",
+        href: "https://spp.mbi-au.sch.id/psb/psb.php",
+      },
     ],
   },
   {
